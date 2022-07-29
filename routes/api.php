@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/login', 'App\Http\Controllers\authUserController@login');
 
-Route::group(['prefix'=> 'users'], function(){
-    Route::get('/', 'App\Http\Controllers\userController@listing')->middleware('auth:api');
-    Route::post('/login', 'App\Http\Controllers\authUserController@login');
+Route::group(['prefix' => 'users','middleware' => ['auth:api']], function() {
+    Route::get('/','App\Http\Controllers\userController@listing');
 });

@@ -42,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public static function get_by_name_or_email($filter)
+    {
+
+        $user = User::query()
+                ->where(function($q) use ($filter){
+
+                    if (!empty($filter['name']) && User::where('name', $filter['name'])->exists()){
+                        $q->where('name', $filter['name']);
+                    }
+
+                    if (!empty($filter['email']) && User::where('email', $filter['email'])->exists()){
+                        $q->where('email', $filter['email']);
+                    }
+                })
+                ->paginate(15);
+
+        return $user;
+    }
 }
