@@ -45,3 +45,29 @@ Requirements:
 
     - link :
         https://www.getpostman.com/collections/c0c95783dcb69d124c7f
+        
+        
+9. additional information:
+    
+    - database config in  .env : 
+        - DB_CONNECTION=mysql
+          DB_HOST=127.0.0.1
+          DB_PORT=3306
+          DB_DATABASE=vimigo-api
+          DB_USERNAME=root
+          DB_PASSWORD=
+        
+        - database structure :
+        - ![image](https://user-images.githubusercontent.com/105404308/181866892-d931146a-47e0-464f-b51a-b423ed630972.png)
+
+        - ![image](https://user-images.githubusercontent.com/105404308/181866886-e0902963-0ecb-4470-9ab5-5b8214533e09.png)
+
+          
+    - file for csv is inside :
+        - public/uploads
+
+
+
+
+
+
