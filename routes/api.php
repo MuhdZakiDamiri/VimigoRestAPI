@@ -18,4 +18,7 @@ Route::post('/login', 'App\Http\Controllers\authUserController@login');
 
 Route::group(['prefix' => 'users','middleware' => ['auth:api']], function() {
     Route::get('/','App\Http\Controllers\userController@listing');
+
+    Route::post('/add-user', 'App\Http\Controllers\userController@fileUploadAddUser');
+    Route::post('/delete-user', 'App\Http\Controllers\userController@fileUploadDeleteUser');
 });
