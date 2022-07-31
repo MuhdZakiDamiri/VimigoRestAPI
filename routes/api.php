@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/login', 'App\Http\Controllers\authUserController@login');
+Route::post('register', 'App\Http\Controllers\authUserController@register');
 
 Route::group(['prefix' => 'users','middleware' => ['auth:api']], function() {
     Route::get('/','App\Http\Controllers\userController@listing');

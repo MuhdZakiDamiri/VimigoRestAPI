@@ -57,4 +57,27 @@ class authUserController extends Controller
         ]);
 
     }
+
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8',
+        ]);
+
+        if (!$validator->fails()) {
+            $input = $request->all();
+            $input['password'] = bcrypt($input['password']);
+
+            $user = User::create($input);
+            $success['name'] =  $user->name;
+            $success['token'] =  $user->createToken($request->name)-> accessToken;
+
+            return response()->json(['registration information'=>$success], 200);
+        }
+
+        return response()->json(['error'=>$validator->errors()], 401);
+
+    }
 }
