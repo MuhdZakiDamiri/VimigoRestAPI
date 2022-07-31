@@ -6,13 +6,17 @@ REST api Assesment
 Requirements:
 1. You are required to do CRUD functions using User Model ([POST]/login &
     [POST]/register is not considered as part of CRUD)
+    
+    - route to register and login
+        Route::post('/login', 'App\Http\Controllers\authUserController@login');
+        Route::post('register', 'App\Http\Controllers\authUserController@register');
+    
 2. The CRUD functions need to be REST API
 3. Your API can only be accessed if the user is authenticated through Laravel Passport.
     
     - route :
         Route::group(['prefix' => 'users','middleware' => ['auth:api']], function() {
             Route::get('/','App\Http\Controllers\userController@listing');
-
             Route::post('/add-user', 'App\Http\Controllers\userController@fileUploadAddUser');
             Route::post('/delete-user', 'App\Http\Controllers\userController@fileUploadDeleteUser');
         });
