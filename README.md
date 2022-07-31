@@ -44,7 +44,7 @@ Requirements:
     JSON link in your README.md.
 
     - link :
-        https://www.getpostman.com/collections/c0c95783dcb69d124c7f
+        - https://www.getpostman.com/collections/c0c95783dcb69d124c7f
         
         
 9. additional information:
